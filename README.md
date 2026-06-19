@@ -60,14 +60,14 @@ Al tratarse de un modelo transaccional bidireccional (dos tipos de usuario: Hué
 
 Para interactuar con los activos de este experimento, utiliza los siguientes accesos directos:
 
-*   **🌐 [Ver Landing Page de Validación Temprana](https://tusitio.googlesites.com/glampspace) (Construido en Google Sites / Canva)**
-*   **🎨 [Ver Prototipo de Alta Fidelidad Interactiva](https://tu-prototipo.vercel.app / v0.dev) (Diseño de Interfaz)**
+*   **🌐 [Ver Landing Page de Validación Temprana](https://stitch.withgoogle.com/projects/5711983884218706032) (Construido en Google Sites / Canva)**
+*   **🎨 [Ver Prototipo de Alta Fidelidad Interactiva]([//tu-prototipo.vercel.app / v0.dev](https://stitch.withgoogle.com/preview/5711983884218706032?node-id=dece9bed77d341469fd0ec0ebcbe3b30) (Diseño de Interfaz)**
 
 ---
 
 ## 📁 6. Evidencia Gráfica
-A continuación se muestran capturas del diseño actual del activo digital:
+A continuación se muestran capturas del diseño actual del activo digital:   
 
-![Vista de la interfaz de GlampSpace](assets/imagenes/screenshot_landing.png)
+![Vista de la interfaz de GlampSpace](https://stitch.withgoogle.com/projects/5711983884218706032)
 
 *(Nota: Puedes ver todo el material gráfico extendido en la carpeta `/assets` de este repositorio).*
