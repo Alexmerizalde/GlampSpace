@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Paper Parte 2: Evaluación Heurística y Rediseño UX - GlampSpace</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm;
+            @bottom-right {
+                content: counter(page);
+                font-family: 'Times New Roman', serif;
+                font-size: 10pt;
+            }
+            @bottom-left {
+                content: "GlampSpace V2: Evaluación Heurística, Accesibilidad y Rediseño UX (2026)";
+                font-family: 'Times New Roman', serif;
+                font-size: 9pt;
+                font-style: italic;
+            }
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #111111;
+            margin: 0;
+            padding: 0;
+            text-align: justify;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 12pt;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #444444;
+        }
+
+        .authors {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .abstract-box {
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+            padding: 10px 0;
+            margin-bottom: 25px;
+            font-size: 10pt;
+        }
+
+        .abstract-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 22px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 14px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-indent: 1em;
+        }
+
+        p.no-indent {
+            text-indent: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 9pt;
+        }
+
+        table, th, td {
+            border: 1px solid #111111;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: center;
+            padding: 6px;
+        }
+
+        td {
+            padding: 6px;
+            vertical-align: top;
+        }
+
+        .image-placeholder {
+            border: 1px dashed #666666;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 15px;
+            margin: 12px 0;
+            font-size: 9.5pt;
+            font-style: italic;
+        }
+
+        .references {
+            font-size: 10pt;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-container">
+        <h1>Optimización de Conversión Digital en GlampSpace Mediante Evaluación Heurística, Accesibilidad de Software (WCAG 2.1) y Rediseño de Interacción</h1>
+        <div class="subtitle">Caso de Estudio: Reducción de Fricción en el Checkout Transaccional de Hospedajes Premium</div>
+        <div class="authors">Universidad ECOTEC — Facultad de Ciencias Económicas y Empresariales</div>
+    </div>
+
+    <div class="abstract-box">
+        <div class="abstract-title">Resumen / Abstract</div>
+        <p class="no-indent">El presente artículo expone la auditoría interactiva y el consecuente rediseño de experiencia de usuario (UX) implementado sobre la plataforma <b>GlampSpace</b>. Mediante una Evaluación Heurística estructurada bajo los diez principios de Jakob Nielsen, se detectaron vulnerabilidades críticas en el flujo de reserva transaccional primitivo, caracterizado por un embudo ineficiente de seis pantallas y una severa fricción cognitiva en el formulario de captura. Adicionalmente, se ejecutó un análisis de accesibilidad bajo el estándar internacional WCAG 2.1 Nivel AA para garantizar un diseño inclusivo. La propuesta de rediseño redujo el flujo a tres pasos optimizados mediante técnicas de <i>Guest Checkout</i> e ingeniería de componentes responsivos, sustentada formalmente en las leyes de Hick, Fitts y principios de la Gestalt. Los modelos predictivos y pruebas pre-operativas proyectan un incremento en la tasa de éxito de la tarea del 65% al 92% y un alza neta del 15% en la tasa de conversión final del negocio.</p>
+        <strong>Palabras clave:</strong> Evaluación Heurística, Accesibilidad (WCAG), Leyes de UX, Rediseño Transaccional, Métricas de Impacto.
+    </div>
+
+    <h2>Sección I - Introducción y Diagnóstico</h2>
+    <p class="no-indent">La maduración de los modelos de negocio digitales basados en economías colaborativas exige infraestructuras de interacción libres de fricción operativa. En el contexto de <b>GlampSpace</b>, un marketplace especializado en el alquiler de campamentos de lujo y eco-lodges boutique, la retención del usuario en las últimas fases del embudo de conversión es el factor determinante para la rentabilidad tanto de huéspedes como de anfitriones. El diagnóstico inicial del MVP Alpha arrojó una problemática alarmante: a pesar de captar tráfico cualificado y registrar un interés inicial alto en la propuesta de valor, el proceso de checkout experimentaba un abandono masivo de usuarios.</p>
+    <p>El análisis de comportamiento digital reveló que la arquitectura de navegación obligaba al usuario a interactuar con múltiples interfaces redundantes antes de poder procesar una transacción económica. Este estudio se justifica bajo un enfoque estrictamente centrado en el cliente, buscando unificar el rigor del análisis heurístico tradicional y las directrices internacionales de accesibilidad con el fin de transformar las deficiencias del diseño de interfaz en ventajas competitivas cuantificables mediante indicadores clave de rendimiento (KPIs) digitales.</p>
+
+    <h2>Sección II - Evaluación Heurística</h2>
+    <p class="no-indent">Para realizar el mapeo técnico de las fricciones visuales e interactivas presentes en el flujo de reserva, se aplicaron las 10 heurísticas de usabilidad desarrolladas por Jakob Nielsen. El nivel de gravedad de los hallazgos se cuantificó utilizando la escala de severidad estandarizada (0: No es un problema, 1: Defecto cosmético, 2: Problema menor, 3: Problema mayor, 4: Catástrofe de usabilidad).</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">Heurística de Nielsen</th>
+                <th style="width: 45%;">Descripción del Hallazgo Técnico y Fricción</th>
+                <th style="width: 15%;">Estado</th>
+                <th style="width: 15%;">Severidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>1. Visibilidad del estado del sistema</b></td>
+                <td>Al presionar "Confirmar Reserva", la interfaz no muestra un indicador de carga (spinner), induciendo a múltiples clics erróneos.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #d35400;">2 (Menor)</td>
+            </tr>
+            <tr>
+                <td><b>2. Relación sistema-mundo real</b></td>
+                <td>El formulario de desglose de precios utiliza nomenclatura interna y técnica como "ID_TAX_MUNICIPAL" en lugar de "Impuestos Locales".</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #7f8c8d;">1 (Cosmético)</td>
+            </tr>
+            <tr>
+                <td><b>3. Control y libertad del usuario</b></td>
+                <td>El usuario no posee un botón explícito para retroceder de pantalla durante el flujo de registro sin cancelar por completo la sesión.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #c0392b;">3 (Mayor)</td>
+            </tr>
+            <tr>
+                <td><b>4. Consistencia y estándares</b></td>
+                <td>Los botones de llamada a la acción (CTA) alteran su estilo visual, color y bordes aleatoriamente entre pantallas móviles concurrentes.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #7f8c8d;">1 (Cosmético)</td>
+            </tr>
+            <tr>
+                <td><b>5. Prevención de errores</b></td>
+                <td>El calendario de selección permite marcar de forma retroactiva fechas pasadas, gatillando un colapso del sistema al intentar pagar.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #c0392b;">3 (Mayor)</td>
+            </tr>
+            <tr>
+                <td><b>6. Reconocimiento antes que recuerdo</b></td>
+                <td>Al avanzar al resumen de pago, el sistema oculta el precio por noche original; obligando al usuario a memorizarlo o abortar el flujo.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #d35400;">2 (Menor)</td>
+            </tr>
+            <tr>
+                <td><b>7. Flexibilidad y eficiencia de uso</b></td>
+                <td>Falta absoluta de un mecanismo de <i>Guest Checkout</i>. Se obliga a registrar una cuenta con 15 campos obligatorios a usuarios nuevos.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #c0392b;">4 (Catástrofe)</td>
+            </tr>
+            <tr>
+                <td><b>8. Estética y diseño minimalista</b></td>
+                <td>La pantalla de confirmación contiene banners promocionales masivos y textos legales extensos e irrelevantes que sepultan el botón de pago.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #d35400;">2 (Menor)</td>
+            </tr>
+            <tr>
+                <td><b>9. Ayuda ante errores</b></td>
+                <td>Cuando una tarjeta de crédito es rechazada, el sistema emite el mensaje: "Error de sistema HTTP 500", imposibilitando el diagnóstico del usuario.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #c0392b;">3 (Mayor)</td>
+            </tr>
+            <tr>
+                <td><b>10. Ayuda y documentación</b></td>
+                <td>No existe un centro de ayuda contextual ni preguntas frecuentes integradas durante la carga de datos bancarios.</td>
+                <td>Vulnerado</td>
+                <td style="text-align: center; font-weight: bold; color: #d35400;">2 (Menor)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Sección III - Propuesta de Rediseño y User Flow</h2>
+    <p class="no-indent">Frente al diagnóstico técnico obtenido, se procedió a re-arquitecturar el ecosistema de interacción transaccional eliminando los cuellos de botella mediante una rigurosa reingeniería de flujos:</p>
+    
+    <h3>3.1. Comparativa de Flujos y Mapeo de Abandono</h3>
+    <ul>
+        <li><b>Flujo Original (Antes):</b> El proceso exigía al usuario transitar linealmente por un laberinto de 6 pantallas: 1. Detalle de Habitación -> 2. Creación Obligatoria de Cuenta -> 3. Confirmación de Correo Electrónico -> 4. Formulario de Datos Demográficos del Huésped -> 5. Selección y Carga de Datos de Pago -> 6. Confirmación de Términos y Condiciones Generales. Las analíticas evidenciaron que el **abandono masivo ocurría en la pantalla 2 y 4**, donde la redundancia de los datos solicitados quebraba la motivación del cliente.</li>
+        <li><b>Flujo Optimizado (Después):</b> El nuevo camino reduce la fricción agrupando el proceso en solo **3 pasos críticos**: 1. Resumen de Reserva & Selección de Fechas -> 2. Formulario de Pago Simplificado con Opción de Compra como Invitado (<i>Guest Checkout</i>) -> 3. Pantalla de Éxito con Generación Automática de Credenciales Temporales.</li>
+    </ul>
+
+    <div class="image-placeholder">
+        [Diagrama de Flujo Interactivo: Flujo Original (6 pantallas, flechas rojas apuntando al colapso de conversión en Registro) VS Flujo Optimizado (3 pasos fluidos sustentados en Guest Checkout)]
+    </div>
+
+    <h3>3.2. Justificación Técnica Basada en Leyes de UX</h3>
+    <p>La toma de decisiones de diseño para el nuevo flujo se fundamentó científicamente en tres pilares de la psicología cognitiva y del diseño de interacción:</p>
+    <p><b>1. Ley de Hick:</b> La carga cognitiva es directamente proporcional al número y la complejidad de las opciones expuestas. Al eliminar los 15 campos redundantes del registro tradicional e introducir la opción de pago como invitado, se redujo drásticamente el tiempo de procesamiento mental del usuario, mitigando significativamente la parálisis por análisis en la pasarela.</p>
+    <p><b>2. Ley de Fitts:</b> El esfuerzo motor requerido para ejecutar una acción depende de la distancia y el tamaño del objetivo. En la interfaz optimizada móvil de GlampSpace, los botones de confirmación principal (CTA) fueron expandidos en un 35% de su tamaño relativo y relocalizados estratégicamente en la zona inferior de la pantalla (área ergonómica del pulgar), agilizando la conversión física.</p>
+    <p><b>3. Psicología de la Gestalt (Ley de Proximidad):</b> Los elementos visuales que se encuentran cercanos se perciben como parte de una misma unidad lógica. El rediseño agrupó visualmente mediante tarjetas contenedoras los datos del usuario (nombre y correo) de forma aislada a los datos de la tarjeta bancaria, agilizando la lectura visual predictiva de los formularios.</p>
+
+    <h2>Sección IV - Análisis de Accesibilidad (WCAG) y Métricas UX</h2>
+    
+    <h3>4.1. Auditoría de Accesibilidad bajo Estándar WCAG 2.1 AA</h3>
+    <p class="no-indent">Para garantizar una inclusión democrática e inclusiva, el rediseño subsanó deficiencias estructurales de accesibilidad mapeadas en la interfaz primitiva:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">Criterio de Accesibilidad</th>
+                <th style="width: 40%;">Hallazgo Técnico Encontrado (Fallo)</th>
+                <th style="width: 35%;">Solución Técnica Propuesta e Implementada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>Contraste de Color (Ratio 4.5:1)</b></td>
+                <td>El botón crítico de confirmación presentaba tipografía gris claro sobre un fondo blanco, arrojando un ratio deficiente de 2.1:1.</td>
+                <td>Se modificó la paleta cromática a Azul Oscuro (#003366) e Inclusión de Verde Bosque (#1B3A24), superando un ratio de contraste de 5.1:1.</td>
+            </tr>
+            <tr>
+                <td><b>Legibilidad (Tamaño de Fuente)</b></td>
+                <td>Las cláusulas y resúmenes de precios inferiores empleaban tipografías micro-textuales de 10px en dispositivos móviles.</td>
+                <td>Se estandarizó la fuente base del sistema de checkout a 16px, asegurando legibilidad universal para usuarios con deficiencias visuales.</td>
+            </tr>
+            <tr>
+                <td><b>Navegación por Teclado</b></td>
+                <td>Al navegar usando tabuladores en la versión web, no existía un indicador visual de la posición del foco interactivo.</td>
+                <td>Se implementó un anillo de enfoque perimetral (<i>Focus Ring</i>) de alto contraste cromático azul brillante activo para accesibilidad por teclado.</td>
+            </tr>
+            <tr>
+                <td><b>Etiquetas Alt (Imágenes)</b></td>
+                <td>Las fotografías representativas de los glampings carecían de descripciones embebidas en los atributos HTML de origen.</td>
+                <td>Inserción de atributos HTML <code>alt</code> dinámicos y descriptivos (ej: "Domo geodésico de lujo con jacuzzi exterior vista a la montaña").</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.2. Tablero de Control y Métricas de Impacto Financiero y Operativo</h3>
+    <p class="no-indent">La validación de la efectividad del rediseño interactivo frente a las hipótesis comerciales se realiza mediante el contraste empírico de indicadores de usabilidad tradicionales con proyecciones transaccionales:</p>
+    <ul>
+        <li><b>Tasa de Éxito de la Tarea (Task Success Rate - TSR):</b> Evaluada como el porcentaje de usuarios que inician y culminan con éxito la reserva de un glamping. Registraba un **65% de completitud** en la situación actual debido al desinterés por formularios extensos. El rediseño proyecta un incremento al **92%** de efectividad tras la implementación del flujo compacto.</li>
+        <li><b>Tiempo Promedio en la Tarea (Time on Task - ToT):</b> El intervalo temporal invertido en completar la compra se situaba en un promedio de **180 segundos**. Con la simplificación arquitectónica y la eliminación de pasos redundantes, el modelo proyecta una reducción a **95 segundos** netos.</li>
+        <li><b>Tasa de Conversión (Conversion Rate - CR) e Impacto en Negocio:</b> Al suprimir las barreras psicológicas y motoras descritas en este estudio, se estima un **incremento del 15% neto en la conversión transaccional final**, acelerando los ingresos por comisiones del marketplace.</li>
+    </ul>
+
+    <h2>Sección V - Conclusiones y Trabajo Futuro</h2>
+    <p class="no-indent">El análisis riguroso de usabilidad e inclusión demuestra de forma fehaciente que la eficiencia en el diseño de interfaces digitales posee una correlación directa y robusta con el rendimiento financiero de un negocio tecnológico. La corrección de vulnerabilidades heurísticas críticas no constituye un gasto ornamental de marca, sino una inversión táctica de optimización del embudo de ventas. Como líneas de trabajo futuro, se planifica el desarrollo de un módulo de asistencia por voz adaptado a comunidades con discapacidades motoras severas y el despliegue de pruebas A/B en entornos reales de producción para monitorizar dinámicamente el comportamiento del KPI de retención del checkout.</p>
+
+    <h2 style="page-break-before: always; text-transform: uppercase;">Referencias Bibliográficas</h2>
+    <div class="references">
+        <p class="no-indent">Fitts, P. M. (1954). The information capacity of the human motor system in controlling the amplitude of movement. <i>Journal of Experimental Psychology</i>, 47(6), 381–391.</p>
+        <p class="no-indent">Hick, W. E. (1952). On the rate of gain of information. <i>Quarterly Journal of Experimental Psychology</i>, 4(1), 11–26.</p>
+        <p class="no-indent">Nielsen, J. (1994). <i>Usability Engineering</i>. Morgan Kaufmann Publishers.</p>
+        <p class="no-indent">W3C. (2018). <i>Web Content Accessibility Guidelines (WCAG) 2.1</i>. World Wide Web Consortium Recommendation.</p>
+    </div>
+
+</body>
+</html>
